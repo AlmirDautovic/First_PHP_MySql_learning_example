@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+h4 {
+    margin: 40px 0;
+}
+
+form {
+    margin: 20px auto;
+    max-width: 500px;
+    padding: 20px;
+}
