@@ -6,6 +6,10 @@ body {
     margin: 0;
 }
 
+.card-text {
+    color: #26a69a !important;
+}
+
 h4 {
     margin: 40px 0;
 }
