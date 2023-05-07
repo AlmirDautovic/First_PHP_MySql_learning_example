@@ -5,7 +5,7 @@ if (!$conn) {
     echo 'Connection error: ' . mysqli_connect_error();
 }
 
-$sql = "SELECT name, id, email, message FROM users created_at";
+$sql = "SELECT name, id, email, message, created_at FROM users created_at";
 
 $result = mysqli_query($conn, $sql);
 
@@ -32,10 +32,10 @@ mysqli_close($conn);
                 <div class="card grey lighten-4 grey-text">
                     <div class="card-content center ">
                         <span class="card-title black-text">
-                            <h5>NAME: <?php echo htmlspecialchars($user['name']) ?></h5>
+                            <h5>NAME : <?php echo htmlspecialchars($user['name']); ?></h5>
                         </span>
-                        <p><?php echo htmlspecialchars($user['email']) ?></p>
-                        <p><?php echo htmlspecialchars($user['message']) ?></p>
+                        <p>Created by : <?php echo htmlspecialchars($user['email']); ?>, on <?php echo htmlspecialchars($user['created_at']); ?></p>
+                        <p>Creator Message : <?php echo htmlspecialchars($user['message']); ?></p>
                     </div>
                     <div class="card-action">
                         <a href="#">More Details</a>
