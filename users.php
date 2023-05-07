@@ -1,9 +1,6 @@
 <?php
-$conn = mysqli_connect('localhost', 'almir', 'almir', 'php example');
 
-if (!$conn) {
-    echo 'Connection error: ' . mysqli_connect_error();
-}
+include('config/db_connection.php');
 
 $sql = "SELECT name, id, email, message, created_at FROM users created_at";
 
