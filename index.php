@@ -2,7 +2,7 @@
 
 include('config/db_connection.php');
 
-$name = $email = $age = $message = '';
+$name = $email = $age = $message = $country = '';
 $errors = array('name' => '', 'email' => '', 'age' => '', 'message' => '');
 
 if (isset($_POST['submit'])) {
@@ -67,6 +67,9 @@ if (isset($_POST['submit'])) {
         <label for="message">Your Message:</label>
         <input type="text" name="message" value="<?php echo htmlspecialchars($message); ?>">
         <div class="red-text"><?php echo $errors['message']; ?></div>
+        <label for="country">Country:</label>
+        <input type="text" name="country" value="<?php echo htmlspecialchars($country); ?>">
+        <div class="red-text"><?php echo $errors['country']; ?></div>
         <div class="center">
             <input type="submit" name="submit" value="submit" class="btn z-depth-0">
         </div>
