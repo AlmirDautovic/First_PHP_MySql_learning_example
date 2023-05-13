@@ -2,7 +2,7 @@
 
 include('config/db_connection.php');
 
-$name = $email = $age = $message = $country = $city = $zipcode = $street = '';
+$name = $email = $age = $message = $country = $city = $zipcode = $street = $userId = '';
 $errors = array(
     'name' => '', 'email' => '', 'age' => '', 'message' => '',
     'country' => '', 'city' => '', 'zipcode' => '', 'street' => ''
@@ -33,12 +33,41 @@ if (isset($_POST['submit'])) {
         $message = $_POST['message'];
     }
 
+    if (empty($_POST['country'])) {
+        $errors['country'] = 'Country input is required' . '</br>';
+    } else {
+        $country = $_POST['country'];
+    }
+
+    if (empty($_POST['city'])) {
+        $errors['city'] = 'City input is required' . '</br>';
+    } else {
+        $city = $_POST['city'];
+    }
+
+    if (empty($_POST['zipcode'])) {
+        $errors['zipcode'] = 'Please insert zipcode' . '</br>';
+    } else {
+        $zipcode = $_POST['zipcode'];
+    }
+    if (empty($_POST['street'])) {
+        $errors['street'] = 'Please insert zipcode' . '</br>';
+    } else {
+        $street = $_POST['street'];
+    }
+
     if (!array_filter(($errors))) {
 
-        $sql = "INSERT INTO users(name, email, age, message) VALUES ('$name', '$email', '$age', '$message')";
+        $sql1 = "INSERT INTO users(name, email, age, message) VALUES ('$name', '$email', '$age', '$message')";
 
-        if (mysqli_query($conn, $sql)) {
-            header('Location: users.php');
+        if (mysqli_query($conn, $sql1) === true) {
+
+            $userId = mysqli_insert_id($conn);
+            $sql2 = "INSERT INTO address(country, city, zipcode, street, userId) VALUES ('$country', '$city', '$zipcode', '$street', '$userId')";
+
+            if (mysqli_query($conn, $sql2) === true) {
+                header('Location: users.php');
+            }
         } else {
             echo 'querry error: ' . mysqli_error($conn);
         }
