@@ -2,8 +2,11 @@
 
 include('config/db_connection.php');
 
-$name = $email = $age = $message = $country = '';
-$errors = array('name' => '', 'email' => '', 'age' => '', 'message' => '');
+$name = $email = $age = $message = $country = $city = $zipcode = $street = '';
+$errors = array(
+    'name' => '', 'email' => '', 'age' => '', 'message' => '',
+    'country' => '', 'city' => '', 'zipcode' => '', 'street' => ''
+);
 
 if (isset($_POST['submit'])) {
     if (empty($_POST['name'])) {
@@ -70,9 +73,19 @@ if (isset($_POST['submit'])) {
         <label for="country">Country:</label>
         <input type="text" name="country" value="<?php echo htmlspecialchars($country); ?>">
         <div class="red-text"><?php echo $errors['country']; ?></div>
+        <label for="city">City:</label>
+        <input type="text" name="city" value="<?php echo htmlspecialchars($city); ?>">
+        <div class="red-text"><?php echo $errors['city']; ?></div>
+        <label for="zipcode">Zipcode:</label>
+        <input type="number" name="zipcode" value="<?php echo htmlspecialchars($zipcode); ?>">
+        <div class="red-text"><?php echo $errors['zipcode']; ?></div>
+        <label for="street">Street:</label>
+        <input type="text" name="street" value="<?php echo htmlspecialchars($street); ?>">
+        <div class="red-text"><?php echo $errors['street']; ?></div>
         <div class="center">
-            <input type="submit" name="submit" value="submit" class="btn z-depth-0">
-        </div>
+            <div class="center">
+                <input type="submit" name="submit" value="submit" class="btn z-depth-0">
+            </div>
     </form>
 </section>
 </body>
