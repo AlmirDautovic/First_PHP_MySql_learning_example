@@ -1,10 +1,12 @@
 function displayUsers() {
     var container = document.getElementById('display');
     container.innerHTML = "";
-    axios.get('http://localhost/PHP-Example/ajax_data.php')
+    axios.post('http://localhost/PHP-Example/ajax_data.php', 1)
         .then(res => {
-            var users = res.data;
-            container.innerHTML = createUserContent(users);
+            console.log(res.data)
+            // var users = res.data;
+            // container.innerHTML = createUserContent(users);
+            container.innerHTML = res.data
         })
         .catch(err => console.log(err));
 }

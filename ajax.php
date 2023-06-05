@@ -1,11 +1,20 @@
+<?php
+
+include('config/db_connection.php');
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <?php include('header.php'); ?>
 <div class="container">
     <div class="row">
         <div class="col s3">
-            <a class="waves-effect blue-grey darken-1 waves-light btn center" style="margin-top: 30px;" onclick="displayUsers()">
-                Load Users</a>
+            <a class="waves-effect blue-grey darken-1 waves-light btn center" id="generateBtn" value=1 style="margin-top: 30px;" onclick="displayUsers(this)">
+                Generate Users</a>
         </div>
 
         <div class="col s9" style="margin-top: 30px;">
