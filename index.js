@@ -3,10 +3,8 @@ function displayUsers() {
     container.innerHTML = "";
     axios.post('http://localhost/PHP-Example/ajax_data.php', 1)
         .then(res => {
-            console.log(res.data)
-            // var users = res.data;
-            // container.innerHTML = createUserContent(users);
-            container.innerHTML = res.data
+            let users = res.data;
+            container.innerHTML = createUserContent(users);
         })
         .catch(err => console.log(err));
 }
@@ -19,7 +17,7 @@ function createUserContent(users) {
            <div class="col s12 m6">
                 <div class="card blue-grey darken-1">
                     <div class="card-content white-text">
-                        <span class="card-title">Nr. ${user.id} - ${user.name}</span>
+                        <span class="card-title">Nr. ${user.id} - Name: ${user.name}</span>
                         <p>User email: ${user.email}</p>
                         <p>Age: ${user.age}</p>
                         <p>Message: ${user.message}</p>
